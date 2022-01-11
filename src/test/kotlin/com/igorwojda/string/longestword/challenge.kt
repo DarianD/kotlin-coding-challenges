@@ -4,7 +4,9 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun longestWord(str: String): String {
-    TODO("not implemented")
+    val vectorPentruStr = str.replace(Regex("[^A-Za-z0-9 ]")," ")
+        .split(" ").sortedByDescending { it.length }
+    return vectorPentruStr.first()
 }
 
 private class Test {
