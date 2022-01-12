@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 private fun containsRange(range1: IntRange, range2: IntRange): Boolean{
     val listOfRange1 = range1.toList()
     val listOfRange2 = range2.toList()
-    return if(listOfRange1.containsAll((listOfRange2))) true else false
+    return listOfRange1.containsAll(listOfRange2)
 }
 
 private class Test {
