@@ -4,7 +4,19 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun countUpAndDown(n: Int): List<Int> {
-    TODO("not implemented")
+//    val myArrayList = arrayListOf<Int>()
+//    for (i in 0..n) {
+//        myArrayList.add(i)
+//        if (i == n) {
+//
+//        }
+//    }
+//    for (i in n - 1 downTo 0) {
+//        myArrayList.add(i)
+//    }
+//    return myArrayList
+
+    return (0..n) + (n-1.. 0)
 }
 
 private class Test {
