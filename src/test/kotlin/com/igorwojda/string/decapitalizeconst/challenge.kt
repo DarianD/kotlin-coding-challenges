@@ -4,8 +4,11 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun decapitalizeConst(str: String): String {
-    var newStr= str.replace("_"," ").trimStart().split(" ").map{ it.toLowerCase() }.map{ it.capitalize() } as ArrayList<String>
-    var firstWord = newStr.removeFirst()
+    val newStr= str.replace("_"," ")
+        .trimStart().split(" ")
+        .map{ it.toLowerCase() }
+        .map{ it.capitalize() } as ArrayList<String>
+    val firstWord = newStr.removeFirst()
     return firstWord.toLowerCase() + newStr.joinToString("")
 }
 

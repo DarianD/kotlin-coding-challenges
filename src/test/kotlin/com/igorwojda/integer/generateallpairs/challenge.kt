@@ -4,7 +4,7 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun getAllPairs(n: Int): List<Pair<Int, Int>> {
-    var list = arrayListOf<Pair<Int,Int>>()
+    var list = mutableListOf<Pair<Int,Int>>()
     for(i in 0..n){
         for(j in 0..n){
             list.add(Pair(i,j))

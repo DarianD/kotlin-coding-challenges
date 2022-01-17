@@ -4,11 +4,13 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun product(list: List<Int>): Int {
-    var result = 1
-    for(item in list){
-        result *= item
-    }
-    return result
+//    var result = 1
+//    for(item in list){
+//        result *= item
+//    }
+//    return result
+//    return list.fold(1) { sum, element -> sum * element }
+    return list.reduce { sum, element -> sum * element }
 }
 
 private class Test {

@@ -3,12 +3,17 @@ package com.igorwojda.integer.factorial
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
-private fun factorial(n: Int): Int {
-    var result=1
-    for(i in n downTo 1){
-        result *= i
-    }
-    return result
+tailrec private fun factorial(n: Int): Int {
+//    var result=1
+//    for(i in n downTo 1){
+//        result *= i
+//    }
+//    return result
+
+    return (0..n-1).fold(1) { sum, element -> sum + element * sum }
+
+//    if (n<1) return 1
+//    else return n*factorial(n-1)
 }
 
 class RecursiveFactorial {
