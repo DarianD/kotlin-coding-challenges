@@ -2,9 +2,16 @@ package com.igorwojda.integer.reverse
 
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
+import kotlin.math.sign
 
 private fun reverseInt(i: Int): Int {
-    TODO("not implemented")
+//    var a = i //.toInt() rezolva deja problema cu 0-urile
+//    while (a != 0 && a % 10 == 0){
+//        a = a/10
+//    }
+    return i.toString().removePrefix("-")
+        .reversed()
+        .toInt() * i.sign
 }
 
 private class Test {

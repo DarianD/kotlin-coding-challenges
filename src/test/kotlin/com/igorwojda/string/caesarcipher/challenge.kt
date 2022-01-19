@@ -4,7 +4,13 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun encodeCaesarCipher(str: String, shift: Int): String {
-    TODO("not implemented")
+    val alphabet = listOf('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z')
+    var newStr = ""
+    str.forEach {
+        val index = (alphabet.indexOf(it) + shift) % alphabet.size
+        newStr = newStr + alphabet[index]
+    }
+    return newStr
 }
 
 private class Test {

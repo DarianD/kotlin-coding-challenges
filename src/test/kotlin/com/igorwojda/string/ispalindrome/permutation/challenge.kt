@@ -4,7 +4,7 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun isPermutationPalindrome(str: String): Boolean {
-    TODO("not implemented")
+    return str.groupingBy { it }.eachCount().filter { it.value % 2 == 1 }.size <= 1
 }
 
 private class Test {

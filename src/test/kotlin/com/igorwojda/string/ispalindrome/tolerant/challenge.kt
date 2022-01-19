@@ -4,8 +4,16 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun isTolerantPalindrome(str: String, characterRemoved: Boolean = false): Boolean {
-    TODO("not implemented")
-}
+    var indexMax = str.lastIndex
+    for (i in 0..str.lastIndex) {
+        if (str[i] != str[indexMax]) {
+            return false
+        }
+        indexMax--
+    }
+    return true
+    }           
+
 
 private class Test {
     @Test
