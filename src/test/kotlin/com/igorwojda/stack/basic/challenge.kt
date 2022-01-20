@@ -4,22 +4,27 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private class Stack<E> {
-    var size = 0
+    private val myStack = mutableListOf<E>()
+
+    val size
+    get()= myStack.size
 
     fun add(element: E) {
-        TODO("not implemented")
+        myStack.add(element)
     }
 
     fun remove(): E? {
-        TODO("not implemented")
+        return if (myStack.isEmpty()) null
+        else myStack.removeAt(myStack.lastIndex)
+
     }
 
     fun peek(): E? {
-        TODO("not implemented")
+        return myStack.lastOrNull()
     }
 
     fun isEmpty(): Boolean {
-        TODO("not implemented")
+        return myStack.isEmpty()
     }
 }
 

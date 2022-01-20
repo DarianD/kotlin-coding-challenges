@@ -4,7 +4,24 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun sumZero(list: List<Int>): Pair<Int, Int>? {
-    TODO("not implemented")
+    if (list.isEmpty()) return null
+
+    var start = 0
+    var end = list.lastIndex
+
+    while (start != end) {
+        val element1 = list[start]
+        val element2 = list[end]
+        val sum = element1 + element2
+
+        when {
+            sum == 0 -> return element1 to element2
+            sum > 0 -> end--
+            sum < 0 -> start++
+        }
+    }
+
+    return null
 }
 
 private class Test {
