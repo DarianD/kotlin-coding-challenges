@@ -4,7 +4,11 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 fun getDuplicatedArguments(vararg strings: String): List<String>? {
-    TODO("not implemented")
+    return strings.toMutableList().
+        groupingBy { it }
+        .eachCount()
+        .filter { it.value >1 }
+        .map { it.key }
 }
 
 private class Test {

@@ -1,5 +1,4 @@
 package com.igorwojda.list.sort.radixsort
-
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
@@ -8,12 +7,18 @@ private fun radixSort(list: List<Int>): List<Number> {
 }
 
 private fun Int.getDigitAt(index: Int): Char {
-    return '0'
+    val str = this.toString()
+    val rightIndex = str.lastIndex - index
+
+    if (str.getOrNull(rightIndex) == null){
+        return '0'
+    }
+    else return str[rightIndex]
 }
 
-private val Int.digitCount get() = -1
+private val Int.digitCount get() = this.toString().count()
 
-private fun maxDigits(list: List<Int>): Int = -1
+private fun maxDigits(list: List<Int>): Int = list.map{ it.digitCount }.maxOrNull() ?: 0
 
 private class Test {
     @Test

@@ -4,7 +4,22 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun surroundedLetter(str: String): Boolean {
-    TODO("not implemented")
+    var allGood = false
+    if (str.length < 3) return false
+    for (i in 0..str.lastIndex) {
+        if (str[i].isLetter()) {
+            if( i == 0 || i == str.lastIndex) {
+                return false
+            }
+            if (i != 0 && str[i - 1] == '+' && str[i + 1] == '+') {
+                allGood = true
+            }
+            else {
+                return false
+            }
+        }
+    }
+    return allGood
 }
 
 private class Test {

@@ -4,7 +4,21 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 fun hasAverage(list: List<Int>, average: Double): Boolean {
-    TODO("not implemented")
+    if (list.size < 2) return false
+
+    var start = 0
+    var end = list.lastIndex
+
+    while (start != end){
+        var pair = (list[start] + list[end])/2.0
+
+        when {
+            pair == average -> return true
+            pair < average -> start++
+            pair > average -> end--
+        }
+    }
+    return false
 }
 
 private fun <E> MutableList<E>.aaa2(a: E) {

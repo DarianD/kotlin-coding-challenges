@@ -4,19 +4,23 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private class Queue<E> {
+    val listQueue = mutableListOf<E>()
     var size = 0
         private set
+        get () {
+            return listQueue.size
+        }
 
     fun add(element: E) {
-        TODO("not implemented")
+        listQueue.add(element)
     }
 
-    fun remove(): E = TODO("not implemented")
+    fun remove(): E? = if(listQueue.isEmpty()) null else listQueue.removeFirst()
 
-    fun peek(): E = TODO("not implemented")
+    fun peek(): E? = listQueue.firstOrNull()
 
     fun isEmpty(): Boolean {
-        TODO("not implemented")
+        return listQueue.isEmpty()
     }
 }
 

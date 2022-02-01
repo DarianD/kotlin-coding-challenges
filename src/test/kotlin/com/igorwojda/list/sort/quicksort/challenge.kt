@@ -1,10 +1,25 @@
 package com.igorwojda.list.sort.quicksort
-
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun quickSort(list: MutableList<Int>, left: Int = 0, right: Int = list.lastIndex): List<Number> {
-    TODO("not implemented")
+    if (list.isEmpty()) return list
+
+    val pivot = list.first()
+    var pivotIndex = 0
+
+    for (i in 0..list.lastIndex) {
+        if (pivot > list[i]) {
+            list.swap(i, pivotIndex+1)
+            pivotIndex++
+        }
+    }
+
+    list.swap(0, pivotIndex)
+    val left = list.subList(0, pivotIndex)
+    val right = list.subList(pivotIndex + 1, list.size)
+
+    return quickSort(left) + listOf(pivot) + quickSort(right)
 }
 
 private fun <T> MutableList<T>.swap(index1: Int, index2: Int) {

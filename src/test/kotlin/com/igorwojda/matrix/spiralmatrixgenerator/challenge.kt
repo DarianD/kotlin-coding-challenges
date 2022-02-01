@@ -4,7 +4,37 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun generateSpiralMatrix(n: Int): List<MutableList<Int?>> {
-    TODO("not implemented")
+    val spiral = MutableList(n) {
+        MutableList<Int?>(n) { null }
+    }
+    var increment = 1
+    var layer = 0
+
+    while(layer < (n+1)/2){
+        for(i in layer until n - layer){
+            spiral[layer][i] = increment
+            increment++
+        }
+
+        for(i in layer + 1 until n - layer){
+            spiral[i][n - layer - 1] = increment
+            increment++
+        }
+
+        for(i in layer + 1 until n - layer){
+            spiral[n - layer - 1][n - i - 1] = increment
+            increment++
+        }
+
+        for(i in layer + 1 until n - layer - 1){
+            spiral[n - i - 1][layer] = increment
+            increment++
+        }
+
+        layer++
+    }
+
+    return spiral
 }
 
 private class Test {

@@ -4,7 +4,14 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun combine(q1: Queue<*>, q2: Queue<*>): Queue<*> {
-    TODO("not implemented")
+    var q3 = Queue<Any>()
+
+    while(!q1.isEmpty() || !q2.isEmpty() ){
+        q1.remove()?.let { q3.add(it) }
+        q2.remove()?.let { q3.add(it) }
+    }
+
+    return q3
 }
 
 private class Queue<E> {
@@ -14,7 +21,7 @@ private class Queue<E> {
         list.add(element)
     }
 
-    fun remove() = if (list.isEmpty()) null else list.removeAt(0)
+    fun remove() = if (list.isEmpty()) null else list.removeFirst()
 
     fun peek() = list.firstOrNull()
 

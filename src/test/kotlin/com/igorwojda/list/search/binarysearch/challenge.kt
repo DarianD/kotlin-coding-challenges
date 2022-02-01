@@ -4,7 +4,10 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun binarySearch(list: List<Char>, element: Char): Int {
-    TODO("not implemented")
+    if(list.binarySearch(element) < -1){
+        return -1
+    }
+    return list.binarySearch(element)
 }
 
 private class Test {

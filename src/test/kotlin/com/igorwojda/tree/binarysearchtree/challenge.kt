@@ -8,15 +8,55 @@ private class BinarySearchTree<E : Comparable<E>> {
         private set
 
     fun add(element: E) {
-        TODO("not implemented")
+        val newNode = BinaryNode(element)
+
+        if (root == null) {
+            root = newNode
+        }
+
+        var current: BinaryNode<E> = root as BinaryNode<E>
+
+        while (true) {
+                if (current.data == element)  {
+                    return
+                }
+                if (element < current.data)  {
+                    if (current.left == null) {
+                        current.left = newNode
+                    }
+
+                    current.left?.let { current = it }
+                }
+                if (element > current.data) {
+                    if (current.right == null) {
+                        current.right = newNode
+                    }
+
+                    current.right?.let { current = it }
+                }
+        }
     }
 
     fun contains(element: E): Boolean {
-        TODO("not implemented")
+        var current = root
+
+        while (true) {
+            if (current == null) {
+                break
+            } else if (current.data == element) {
+                return true
+            } else if (element < current.data) {
+                current = current.left
+            } else if (element > current.data) {
+                current = current.right
+            }
+        }
+
+        return false
     }
 
     fun isEmpty(): Boolean {
-        TODO("not implemented")
+        return root == null
     }
 }
 
